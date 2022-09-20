@@ -1,0 +1,48 @@
+.user_detail_main_div {
+  position: absolute;
+  top: 25px;
+  left: 320px;
+  box-sizing: border-box;
+  border: solid 2px #75af41;
+  padding: 10px;
+  border-radius: 10px;
+  color: #256c4cde;
+  width: 300px;
+}
+p {
+  color: #3254b7c7;
+}
+button {
+  margin: 5px 10px ;
+  color: rgba(122, 155, 102, 0.98);
+}
+.user_detail_button_div {
+  display: flex;
+  justify-content: right;
+  padding: 5px;
+}
+.user_detail_div_main_user_post {
+  position: absolute;
+  top: 25px;
+  left: 650px;
+  box-sizing: border-box;
+  border: solid 2px #75af41;
+  padding: 10px;
+  border-radius: 10px;
+  color: #256c4cde;
+  width: 400px;
+}
+.user_detail_div_user_post_title {
+  color: #3254b7c7;
+}
+.comments_div_main {
+  position: absolute;
+  top: 25px;
+  left: 1080px;
+  box-sizing: border-box;
+  border: solid 2px #75af41;
+  padding: 10px;
+  border-radius: 10px;
+  color: #256c4cde;
+  width: 400px;
+}

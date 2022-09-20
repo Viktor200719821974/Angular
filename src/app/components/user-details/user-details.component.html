@@ -1,0 +1,48 @@
+<!--<p>{{user?.id}}. {{user?.name}} {{user?.email}}</p>-->
+<div class="user_detail_main_div">
+<!--  <div class="user_detail_button_div">-->
+<!--    <button (click)="closeUserDetails()">X</button>-->
+<!--  </div>-->
+  <p>{{user.id}}. {{user.name}}</p>
+  <div>Email: {{user.email}}</div>
+  <div>Username: {{user.username}}</div>
+  <div>Phone: {{user.phone}}</div>
+  <div>Website: {{user.website}}</div>
+  <p>Address:</p>
+  <div>City: {{user.address.city}}</div>
+  <div>Street: {{user.address.street}}</div>
+  <div>Suite: {{user.address.suite}}</div>
+  <div>Zipcode: {{user.address.zipcode}}</div>
+  <p>Geo:</p>
+  <div>lat: {{user.address.geo.lat}}</div>
+  <div>lng: {{user.address.geo.lng}}</div>
+  <p>Company: </p>
+  <div>Bs: {{user.company.bs}}</div>
+  <div>CatchPhrase: {{user.company.catchPhrase}}</div>
+  <div>CompanyName: {{user.company.name}}</div>
+  <div class="user_detail_button_div">
+    <button (click)="userPosts(user.id)">{{load ? 'close posts' : 'details'}}</button>
+  </div>
+</div>
+<div *ngIf="load" class="user_detail_div_main_user_post">
+  <div>Posts:</div>
+    <div class="user_detail_button_div">
+      <button (click)="userPostsDetails()">{{loadDetails ? 'scroll posts' : 'details'}}</button>
+    </div>
+  <div *ngFor="let p of post">
+   <div class="user_detail_div_user_post_title">{{p.id}}. {{p.title}}</div>
+    <div *ngIf="loadDetails">{{p.body}}</div>
+    <div *ngIf="loadDetails" class="user_detail_button_div">
+      <button (click)="postComments(p.id)">comments</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="loadComments" class="comments_div_main">
+  <div>Comments:</div>
+  <div class="user_detail_button_div">
+    <button (click)="closeComments()">X</button>
+  </div>
+  <app-comments *ngFor="let c of comments" [comment]="c"></app-comments>
+</div>
+
+
