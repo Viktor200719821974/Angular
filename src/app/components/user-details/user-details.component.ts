@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {User} from '../../models/User';
-import {PostService} from '../../services/post.service';
-import {Post} from '../../models/Post';
-import {Comment} from '../../models/Comment';
-import {CommentsService} from "../../services/comments.service";
+import {CommentsService, PostService} from 'src/app/services';
+import {IComment, IPost, IUser} from '../../interfaces';
 
 @Component({
   selector: 'app-user-details',
@@ -13,10 +10,10 @@ import {CommentsService} from "../../services/comments.service";
 })
 export class UserDetailsComponent implements OnInit {
 
-  user: User;
+  user: IUser;
   load: boolean = false;
-  post: Post[] = [];
-  comments: Comment[] = [];
+  post: IPost[] = [];
+  comments: IComment[] = [];
   loadDetails: boolean = false;
   loadComments: boolean = false;
 
@@ -34,7 +31,7 @@ export class UserDetailsComponent implements OnInit {
     });
   //   this.activatedRoute.params.subscribe(value => {
   //     // console.log(history.state);
-  //     this.user = this.router.getCurrentNavigation()?.extras.state as User;
+  //     this.user = this.router.getCurrentNavigation()?.extras.state as UserInterface;
   //   });
   }
 
