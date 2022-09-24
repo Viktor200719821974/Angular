@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+
 import {IUser} from '../../interfaces';
-import {ActivatedRoute, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-user',
@@ -11,6 +13,8 @@ export class UserComponent implements OnInit {
 
   @Input()
   user: IUser;
+  @Output()
+  username = new EventEmitter<string>();
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -20,4 +24,8 @@ export class UserComponent implements OnInit {
   nevTo() {
     this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user});
   }
+
+  lift() {
+    this.username.emit(this.user.name);
+    }
 }

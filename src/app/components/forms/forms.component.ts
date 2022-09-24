@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../services';
-import {IUser} from '../../interfaces';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DataTransferService, UserService } from '../../services';
+import { IUser } from '../../interfaces';
 
 @Component({
   selector: 'app-forms',
@@ -19,7 +19,10 @@ export class FormsComponent implements OnInit {
   users: IUser[];
   userDetail: IUser;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private transferService: DataTransferService
+    ) { }
 
   customValidator(control: AbstractControl): null | object {
     return control.value.includes('huck') ? {ahtung: 'Error'} : null;
@@ -53,5 +56,9 @@ export class FormsComponent implements OnInit {
   showDetails() {
     const id = this.myForm2.controls['userId'].value;
     this.userDetail = this.users[id - 1];
+  }
+
+  setAge():void {
+    this.transferService.setAgeData(this.myForm.controls['age'].value);
   }
 }
