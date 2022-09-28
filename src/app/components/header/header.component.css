@@ -1,0 +1,7 @@
+.header {
+    display: flex;
+    justify-content: right;
+    padding: 20px;
+    background-color: blue;
+    color: snow;
+}

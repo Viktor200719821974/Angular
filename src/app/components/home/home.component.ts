@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, DoCheck, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { TestComponent } from '../test/test.component';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +7,6 @@ import { TestComponent } from '../test/test.component';
 })
 export class HomeComponent implements OnInit, DoCheck, AfterViewInit, OnDestroy {
 
-  @ViewChild(TestComponent)
-  testComponent: TestComponent
 
   constructor() { }
   ngOnDestroy(): void {
@@ -17,7 +14,7 @@ export class HomeComponent implements OnInit, DoCheck, AfterViewInit, OnDestroy 
   }
 
   ngAfterViewInit(): void {
-   console.log(this.testComponent.name);
+   console.log();
   }
 
   ngDoCheck(): void {

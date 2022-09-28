@@ -1,23 +1,10 @@
 export interface IUser {
   id: number;
-  name: string;
   email: string;
-  phone: string;
-  username: string;
-  website: string;
-  address: {
-    city: string;
-    geo: {
-      lat: string;
-      lng: string;
-    }
-    street: string;
-    suite: string;
-    zipcode: string;
-  }
-  company: {
-    bs: string;
-    name: string;
-    catchPhrase: string;
-  }
+  is_active: boolean;
+  is_staff: boolean;
+  is_superuser: boolean;
+  last_login: Date;
+  created: Date;
+  updated: Date;
 }

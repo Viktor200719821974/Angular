@@ -3,14 +3,18 @@ import { CommonModule } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { CarsComponent } from './components/admin/cars/cars.component';
 
 const routes: Route[] = [
   {
     path: '', component: HomeComponent, children: [
-      {
-        path: 'users', loadChildren: () => import('./moduls/user/user.module')
-      .then(value => value.UserModule)
-    }
+      {path: '', redirectTo: 'login', pathMatch: 'full'},
+      {path: 'login', component: LoginComponent},
+      {path: 'cars', component: CarsComponent},
+      {path: 'admin', loadChildren: () => import('./components/admin/admin.module')
+        .then(value => value.AdminModule)
+      }
     ]
   }
 ]
